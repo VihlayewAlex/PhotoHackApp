@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet var soundButtons: [UIButton]!
     
     let camera = Camera()
+    let playerService = SoundPlayerService()
     
     fileprivate var selectedTag = 0
     
@@ -133,6 +134,10 @@ class ViewController: UIViewController {
         
 //        messages.append(inputTextView.text)
 //        inputTextView.text = ""
+
+        playerService.play("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
+        messages.append(inputTextView.text)
+        inputTextView.text = ""
     }
     
     var selectedSoundPath: String?

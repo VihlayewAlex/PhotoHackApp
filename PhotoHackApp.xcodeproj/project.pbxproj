@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E02B8F62340011900CA2B11 /* SoundPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */; };
 		FA882213233F5E4E0074B68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA882212233F5E4E0074B68E /* AppDelegate.swift */; };
 		FA882215233F5E4E0074B68E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA882214233F5E4E0074B68E /* ViewController.swift */; };
 		FA882218233F5E4E0074B68E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA882216233F5E4E0074B68E /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerService.swift; sourceTree = "<group>"; };
 		FA88220F233F5E4E0074B68E /* PhotoHackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoHackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA882212233F5E4E0074B68E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA882214233F5E4E0074B68E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				FAD69D7A23400186007DC7DE /* NetworkingService.swift */,
 				FAD69D7E234001DB007DC7DE /* Config.swift */,
 				FAD69D83234012E3007DC7DE /* Cell.swift */,
+				2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */,
 			);
 			path = PhotoHackApp;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				FAD69D822340055F007DC7DE /* music.swift in Sources */,
 				FA882215233F5E4E0074B68E /* ViewController.swift in Sources */,
 				FA882213233F5E4E0074B68E /* AppDelegate.swift in Sources */,
+				2E02B8F62340011900CA2B11 /* SoundPlayerService.swift in Sources */,
 				FAD69D72233F9727007DC7DE /* Camera.swift in Sources */,
 				FAD69D7B23400186007DC7DE /* NetworkingService.swift in Sources */,
 				FAD69D84234012E3007DC7DE /* Cell.swift in Sources */,
