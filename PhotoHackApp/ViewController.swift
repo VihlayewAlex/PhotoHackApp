@@ -16,13 +16,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputTextFieldMinimumHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var inputContainerViewBottomConstraint: NSLayoutConstraint!
     
+    
+    @IBOutlet var emojiView: [UIButton]!
+    
+    @IBOutlet var soundButtons: [UIButton]!
+    
     let camera = Camera()
+    
+    fileprivate var selectedTag = 0
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    var messages = [String]()
+
+    var messages = [String]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +43,16 @@ class ViewController: UIViewController {
         
         tableView.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         
-        camera.setupCamera()
+        for (index, button) in emojiView.enumerated() {
+            button.layer.cornerRadius = 22.5
+            button.tag = index
+        }
+        
+        for (index, button) in soundButtons.enumerated() {
+            button.layer.cornerRadius = 4
+            button.tag = index
+        }
+//        camera.setupCamera()
         subscribeToKeyboardEvents()
     }
     
@@ -53,6 +73,38 @@ class ViewController: UIViewController {
         inputTextView.text = ""
     }
     
+    @IBAction func setEmoji(_ sender: UIButton) {
+        
+        self.setSelectedEmoji(for: sender.tag)
+    }
+    
+    @IBAction func setSound(_ sender: UIButton) {
+        
+        self.setSelectedSound(for: sender.tag)
+    }
+    
+    func setSelectedSound(for tag: Int) {
+        self.soundButtons.forEach { (button) in
+            if button.tag == tag {
+                self.selectedTag = tag
+                button.backgroundColor = UIColor(displayP3Red: 0.577, green: 0.289, blue: 0.867, alpha: 1)
+            } else {
+                button.backgroundColor = UIColor(displayP3Red: 0.329, green: 0.324, blue: 0.478, alpha: 1)
+            }
+        }
+    }
+
+    
+    func setSelectedEmoji(for tag: Int) {
+        self.emojiView.forEach { (button) in
+            if button.tag == tag {
+                self.selectedTag = tag
+                button.backgroundColor = UIColor(displayP3Red: 0.577, green: 0.289, blue: 0.867, alpha: 1)
+            } else {
+                button.backgroundColor = UIColor(displayP3Red: 0.329, green: 0.324, blue: 0.478, alpha: 1)
+            }
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
