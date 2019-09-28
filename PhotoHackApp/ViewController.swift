@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         let text: String
         let emojiID: Int?
         let soundPath: String?
+        var isPlayed: Bool
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -95,7 +96,7 @@ class ViewController: UIViewController {
                 SOUND: \(selectedSoundPath)
                 EMOJI: \(selectedEmojiID)
             """)
-            messages.insert(ViewController.Message(text: text, emojiID: selectedEmojiID, soundPath: selectedSoundPath), at: 0)
+            messages.insert(ViewController.Message(text: text, emojiID: selectedEmojiID, soundPath: selectedSoundPath, isPlayed: false), at: 0)
             //
             
             inputTextView.text = ""
@@ -135,9 +136,9 @@ class ViewController: UIViewController {
 //        messages.append(inputTextView.text)
 //        inputTextView.text = ""
 
-        playerService.play("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-        messages.append(inputTextView.text)
-        inputTextView.text = ""
+//        playerService.play("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
+//        messages.append(inputTextView.text)
+//        inputTextView.text = ""
     }
     
     var selectedSoundPath: String?
@@ -239,6 +240,17 @@ extension ViewController: CellDelegate {
     
     func playTapped(at indexPath: IndexPath) {
         
+        if !self.messages[indexPath.row].isPlayed {
+            playerService.play(self.messages[indexPath.row].soundPath ?? "")
+            let cell = self.tableView.cellForRow(at: indexPath) as! Cell
+            cell.playButton.setTitle("Stop", for: .normal)
+            self.messages[indexPath.row].isPlayed = true
+        }else {
+            playerService.stop()
+            let cell = self.tableView.cellForRow(at: indexPath) as! Cell
+            cell.playButton.setTitle("Play", for: .normal)
+            self.messages[indexPath.row].isPlayed = false
+        }
     }
     
 }
