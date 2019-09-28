@@ -14,6 +14,11 @@
 		FA88221A233F5E4F0074B68E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA882219233F5E4F0074B68E /* Assets.xcassets */; };
 		FA88221D233F5E4F0074B68E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA88221B233F5E4F0074B68E /* LaunchScreen.storyboard */; };
 		FAD69D72233F9727007DC7DE /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD69D71233F9727007DC7DE /* Camera.swift */; };
+		FAD69D7B23400186007DC7DE /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD69D7A23400186007DC7DE /* NetworkingService.swift */; };
+		FAD69D7D234001C6007DC7DE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD69D7C234001C6007DC7DE /* Response.swift */; };
+		FAD69D7F234001DB007DC7DE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD69D7E234001DB007DC7DE /* Config.swift */; };
+		FAD69D822340055F007DC7DE /* music.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD69D812340055F007DC7DE /* music.swift */; };
+		FAD69D84234012E3007DC7DE /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD69D83234012E3007DC7DE /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		FA88221C233F5E4F0074B68E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA88221E233F5E4F0074B68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD69D71233F9727007DC7DE /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		FAD69D7A23400186007DC7DE /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		FAD69D7C234001C6007DC7DE /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		FAD69D7E234001DB007DC7DE /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		FAD69D812340055F007DC7DE /* music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = music.swift; sourceTree = "<group>"; };
+		FAD69D83234012E3007DC7DE /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 		FA882211233F5E4E0074B68E /* PhotoHackApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAD69D8023400534007DC7DE /* Models */,
 				FA882212233F5E4E0074B68E /* AppDelegate.swift */,
 				FA882214233F5E4E0074B68E /* ViewController.swift */,
 				FA882216233F5E4E0074B68E /* Main.storyboard */,
@@ -65,9 +76,21 @@
 				FA88221B233F5E4F0074B68E /* LaunchScreen.storyboard */,
 				FA88221E233F5E4F0074B68E /* Info.plist */,
 				FAD69D71233F9727007DC7DE /* Camera.swift */,
+				FAD69D7A23400186007DC7DE /* NetworkingService.swift */,
+				FAD69D7E234001DB007DC7DE /* Config.swift */,
+				FAD69D83234012E3007DC7DE /* Cell.swift */,
 				2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */,
 			);
 			path = PhotoHackApp;
+			sourceTree = "<group>";
+		};
+		FAD69D8023400534007DC7DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAD69D7C234001C6007DC7DE /* Response.swift */,
+				FAD69D812340055F007DC7DE /* music.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +164,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD69D822340055F007DC7DE /* music.swift in Sources */,
 				FA882215233F5E4E0074B68E /* ViewController.swift in Sources */,
 				FA882213233F5E4E0074B68E /* AppDelegate.swift in Sources */,
 				2E02B8F62340011900CA2B11 /* SoundPlayerService.swift in Sources */,
 				FAD69D72233F9727007DC7DE /* Camera.swift in Sources */,
+				FAD69D7B23400186007DC7DE /* NetworkingService.swift in Sources */,
+				FAD69D84234012E3007DC7DE /* Cell.swift in Sources */,
+				FAD69D7D234001C6007DC7DE /* Response.swift in Sources */,
+				FAD69D7F234001DB007DC7DE /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
