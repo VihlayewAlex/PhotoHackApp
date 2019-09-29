@@ -57,24 +57,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7IR-eX-flD">
-                                                    <rect key="frame" x="107" y="4" width="260" height="181.5"/>
+                                                    <rect key="frame" x="227" y="4" width="140" height="181.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZm-Mm-0D1">
-                                                            <rect key="frame" x="8" y="116" width="244" height="19.5"/>
+                                                            <rect key="frame" x="8" y="166" width="124" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="send" translatesAutoresizingMaskIntoConstraints="NO" id="BCS-fV-yvd">
-                                                            <rect key="frame" x="80" y="8" width="100" height="100"/>
+                                                            <rect key="frame" x="-5" y="8" width="150" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="BCS-fV-yvd" secondAttribute="height" id="Nv7-eT-JqL"/>
-                                                                <constraint firstAttribute="height" constant="100" id="ZFl-ee-SP6"/>
+                                                                <constraint firstAttribute="height" constant="150" id="ZFl-ee-SP6"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ML6-co-Tcn">
-                                                            <rect key="frame" x="222" y="8" width="30" height="30"/>
-                                                            <state key="normal" title="Play">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ML6-co-Tcn">
+                                                            <rect key="frame" x="84" y="8" width="48" height="48"/>
+                                                            <state key="normal" image="music">
                                                                 <color key="titleColor" red="1" green="0.1186047689" blue="0.160542395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
@@ -87,9 +87,10 @@
                                                         <constraint firstAttribute="trailing" secondItem="IZm-Mm-0D1" secondAttribute="trailing" constant="8" id="4iP-CO-I1s"/>
                                                         <constraint firstItem="BCS-fV-yvd" firstAttribute="centerX" secondItem="7IR-eX-flD" secondAttribute="centerX" id="5P6-qs-Dwz"/>
                                                         <constraint firstItem="BCS-fV-yvd" firstAttribute="top" secondItem="7IR-eX-flD" secondAttribute="top" constant="8" id="8Bh-zA-kOa"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="140" id="GZk-uZ-KEf"/>
                                                         <constraint firstItem="IZm-Mm-0D1" firstAttribute="leading" secondItem="7IR-eX-flD" secondAttribute="leading" constant="8" id="SHM-yp-mrV"/>
                                                         <constraint firstItem="ML6-co-Tcn" firstAttribute="top" secondItem="7IR-eX-flD" secondAttribute="top" constant="8" id="UCf-WD-wiL"/>
-                                                        <constraint firstAttribute="width" constant="260" id="hhi-zM-tbq"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="260" id="hhi-zM-tbq"/>
                                                         <constraint firstAttribute="bottom" secondItem="IZm-Mm-0D1" secondAttribute="bottom" constant="8" id="jK6-Fj-4Lv"/>
                                                         <constraint firstItem="IZm-Mm-0D1" firstAttribute="top" secondItem="BCS-fV-yvd" secondAttribute="bottom" constant="8" id="uYr-ZI-D6l"/>
                                                         <constraint firstAttribute="trailing" secondItem="ML6-co-Tcn" secondAttribute="trailing" constant="8" id="wWr-sp-eYv"/>
@@ -293,52 +294,49 @@
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbJ-xL-Hyd">
                                                                         <rect key="frame" x="60" y="0.0" width="45" height="45"/>
                                                                         <color key="backgroundColor" name="lightGray"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="45" id="edW-Pg-b2n"/>
-                                                                        </constraints>
                                                                         <state key="normal" title="🙁"/>
                                                                         <connections>
                                                                             <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7CE-BE-6so"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VZ-zx-fpE">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2k-Qd-bF1">
                                                                         <rect key="frame" x="120" y="0.0" width="45" height="45"/>
                                                                         <color key="backgroundColor" name="lightGray"/>
-                                                                        <state key="normal" title="👿"/>
+                                                                        <state key="normal" title="😡"/>
                                                                         <connections>
-                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZ8-nb-nMG"/>
+                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HIP-a5-DLG"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBt-Pi-vV4">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-cS-rjM">
                                                                         <rect key="frame" x="180" y="0.0" width="45" height="45"/>
                                                                         <color key="backgroundColor" name="lightGray"/>
-                                                                        <state key="normal" title="😮"/>
+                                                                        <state key="normal" title="😱"/>
                                                                         <connections>
-                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdF-HY-TQ7"/>
+                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R9w-V1-Nw5"/>
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUy-4p-KgY">
                                                                         <rect key="frame" x="240" y="0.0" width="45" height="45"/>
                                                                         <color key="backgroundColor" name="lightGray"/>
-                                                                        <state key="normal" title="😐"/>
+                                                                        <state key="normal" title="👻"/>
                                                                         <connections>
                                                                             <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Q6-CH-Wsd"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbJ-cS-rjM">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VZ-zx-fpE">
                                                                         <rect key="frame" x="300" y="0.0" width="45" height="45"/>
                                                                         <color key="backgroundColor" name="lightGray"/>
-                                                                        <state key="normal" title="💣"/>
+                                                                        <state key="normal" title="😐"/>
                                                                         <connections>
-                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R9w-V1-Nw5"/>
+                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZ8-nb-nMG"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2k-Qd-bF1">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBt-Pi-vV4">
                                                                         <rect key="frame" x="360" y="0.0" width="45" height="45"/>
                                                                         <color key="backgroundColor" name="lightGray"/>
-                                                                        <state key="normal" title="🔥"/>
+                                                                        <state key="normal" title="😮"/>
                                                                         <connections>
-                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HIP-a5-DLG"/>
+                                                                            <action selector="setEmoji:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zdF-HY-TQ7"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -375,6 +373,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zym-Sx-DMf">
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Bb8-IV-zJr"/>
+                                    <constraint firstAttribute="width" secondItem="zym-Sx-DMf" secondAttribute="height" multiplier="3:4" id="hFY-9x-N3I"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -386,10 +391,12 @@
                             <constraint firstAttribute="bottom" secondItem="fEr-wI-4Ak" secondAttribute="bottom" id="Fmt-S8-IXq"/>
                             <constraint firstItem="fEr-wI-4Ak" firstAttribute="top" secondItem="Ep0-aJ-5Ec" secondAttribute="bottom" id="H7z-yg-Trt"/>
                             <constraint firstItem="Ep0-aJ-5Ec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HHU-fd-0yQ"/>
+                            <constraint firstItem="zym-Sx-DMf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="O0w-2z-aWg"/>
                             <constraint firstItem="hRW-li-daY" firstAttribute="top" secondItem="nQ5-CL-eMr" secondAttribute="bottom" id="Vg6-bA-GjJ"/>
                             <constraint firstItem="Ep0-aJ-5Ec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bnV-E9-WKa"/>
                             <constraint firstItem="hRW-li-daY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFt-i5-w1L"/>
                             <constraint firstItem="nQ5-CL-eMr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gHx-QC-yVh"/>
+                            <constraint firstItem="zym-Sx-DMf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="l7g-qg-MeC"/>
                             <constraint firstItem="nQ5-CL-eMr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oh8-x5-kIc"/>
                             <constraint firstItem="Ep0-aJ-5Ec" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oww-mw-I7V"/>
                             <constraint firstItem="fEr-wI-4Ak" firstAttribute="top" secondItem="hRW-li-daY" secondAttribute="bottom" id="zZR-Md-eMs"/>
@@ -400,20 +407,21 @@
                         <outlet property="inputContainerViewBottomConstraint" destination="Fmt-S8-IXq" id="UqK-Bg-zXc"/>
                         <outlet property="inputTextFieldMinimumHeightConstraint" destination="eBG-lg-JHV" id="ZEj-Cl-vwo"/>
                         <outlet property="inputTextView" destination="dxB-ix-UTs" id="waZ-wR-cCb"/>
+                        <outlet property="photoImgView" destination="zym-Sx-DMf" id="dBU-Pd-DKR"/>
                         <outlet property="scrollersContainer" destination="Ep0-aJ-5Ec" id="GUq-53-mSC"/>
                         <outlet property="sendButton" destination="yQe-NF-vcb" id="kSb-2l-G64"/>
                         <outlet property="tableView" destination="hRW-li-daY" id="eOG-JY-bV6"/>
-                        <outletCollection property="emojiView" destination="j7b-i2-yPI" collectionClass="NSMutableArray" id="XIf-Om-0b1"/>
-                        <outletCollection property="emojiView" destination="mbJ-xL-Hyd" collectionClass="NSMutableArray" id="0NI-Ih-wXv"/>
-                        <outletCollection property="emojiView" destination="3VZ-zx-fpE" collectionClass="NSMutableArray" id="YPz-Xk-Pj6"/>
-                        <outletCollection property="emojiView" destination="cBt-Pi-vV4" collectionClass="NSMutableArray" id="CJn-7e-JmL"/>
-                        <outletCollection property="emojiView" destination="xUy-4p-KgY" collectionClass="NSMutableArray" id="xZ9-aR-63O"/>
-                        <outletCollection property="emojiView" destination="FbJ-cS-rjM" collectionClass="NSMutableArray" id="frl-1F-fWk"/>
-                        <outletCollection property="emojiView" destination="D2k-Qd-bF1" collectionClass="NSMutableArray" id="t6d-jJ-mnN"/>
                         <outletCollection property="soundButtons" destination="pVf-4y-dIH" collectionClass="NSMutableArray" id="CVT-00-dMy"/>
                         <outletCollection property="soundButtons" destination="Sdz-aI-PDj" collectionClass="NSMutableArray" id="BPh-9G-NPr"/>
                         <outletCollection property="soundButtons" destination="Okn-Kf-JYk" collectionClass="NSMutableArray" id="RfW-rH-TJe"/>
                         <outletCollection property="soundButtons" destination="Ff0-EM-RzL" collectionClass="NSMutableArray" id="n9k-w6-uzl"/>
+                        <outletCollection property="emojiView" destination="j7b-i2-yPI" collectionClass="NSMutableArray" id="qtQ-zy-y6S"/>
+                        <outletCollection property="emojiView" destination="mbJ-xL-Hyd" collectionClass="NSMutableArray" id="YPC-0g-Nih"/>
+                        <outletCollection property="emojiView" destination="D2k-Qd-bF1" collectionClass="NSMutableArray" id="LA3-43-kSP"/>
+                        <outletCollection property="emojiView" destination="FbJ-cS-rjM" collectionClass="NSMutableArray" id="FQh-Q6-ou7"/>
+                        <outletCollection property="emojiView" destination="xUy-4p-KgY" collectionClass="NSMutableArray" id="K9e-bf-In7"/>
+                        <outletCollection property="emojiView" destination="3VZ-zx-fpE" collectionClass="NSMutableArray" id="tdh-e4-Afu"/>
+                        <outletCollection property="emojiView" destination="cBt-Pi-vV4" collectionClass="NSMutableArray" id="8kF-ho-F7a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -422,6 +430,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="music" width="48" height="48"/>
         <image name="navBg" width="375" height="103"/>
         <image name="send" width="108" height="108"/>
         <namedColor name="lightGray">
