@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         let text: String
         let emojiID: Int?
         let soundPath: String?
-        var isPlayed: Bool
     }
     
     @IBOutlet weak var photoImgView: UIImageView!
@@ -72,12 +71,12 @@ class ViewController: UIViewController {
         
         for (index, button) in emojiView.enumerated() {
             button.layer.cornerRadius = 22.5
-            button.tag = index
+            button.tag = (index)
         }
         
         for (index, button) in soundButtons.enumerated() {
             button.layer.cornerRadius = 4
-            button.tag = index
+            button.tag = (index)
         }
         camera.setupCamera()
         subscribeToKeyboardEvents()
@@ -123,8 +122,9 @@ class ViewController: UIViewController {
                                     let image = UIImage(data: data)!
                                     // Send msg with 'selectedSoundPath'
                                     self.messages.insert(ViewController.Message(image: image, text: text, emojiID: self.selectedEmojiID, soundPath: self.selectedSoundPath), at: 0)
-                                    guard let path = self.selectedSoundPath else { return }
-                                    self.playerService.play(path)
+                                    if let path = self.selectedSoundPath {
+                                        self.playerService.play(path)
+                                    }
                                     
                                     self.inputTextView.text = ""
                                     self.state = .textEntering
@@ -150,6 +150,7 @@ class ViewController: UIViewController {
                     self.state = .attachmentsConfuration(text: self.inputTextView.text)
                     self.selectedEmojiID = response.emotion
                     self.setSelectedEmoji(for: response.emotion - 1)
+                    self.scrollersContainer.isHidden = false
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -190,7 +191,7 @@ class ViewController: UIViewController {
     
     @IBAction func setEmoji(_ sender: UIButton) {
         self.setSelectedEmoji(for: sender.tag)
-        self.selectedEmojiID = sender.tag
+        self.selectedEmojiID = sender.tag + 1
         self.state = .attachmentsConfuration(text: inputTextView.text)
     }
     
@@ -242,6 +243,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! Cell
         let message = messages[indexPath.row]
         
+        let emojiID = (message.emojiID ?? 6) - 1
+        
+        cell.emoji = emojiView?[emojiID].titleLabel?.text
+        
         cell.indexPath = indexPath
         cell.delegate = self
         cell.messageLabel.text = message.text
@@ -253,6 +258,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as! Cell
+        
+        cell.startEmiting()
         
         UIView.animate(withDuration:1.0,
                        delay: 0.0,
