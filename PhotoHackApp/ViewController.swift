@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         let text: String
         let emojiID: Int?
         let soundPath: String?
-        var isPlayed: Bool
     }
     
     @IBOutlet weak var photoImgView: UIImageView!
@@ -108,7 +107,7 @@ class ViewController: UIViewController {
                     switch result {
                     case .success(let response):
                         guard let link = response.links.last else {
-                            let alert = UIAlertController(title: "Erroe", message: "Retake photo please", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Error", message: "Retake photo please", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                             self.present(alert, animated: true, completion: nil)
                             return
@@ -156,7 +155,8 @@ class ViewController: UIViewController {
             }
         }
         
-        networkingService.performRequest(to: EndpointCollection.music(phrase: inputTextView.text, words: ["dick"])) { (result: Result<MusicResponse>) in
+        let keyWords = NLPService.shared.getKeyWords(self.inputTextView.text)
+        networkingService.performRequest(to: EndpointCollection.music(phrase: inputTextView.text, words: ["\(keyWords)"])) { (result: Result<MusicResponse>) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
@@ -172,7 +172,7 @@ class ViewController: UIViewController {
                             continue
                         }
                         button.isHidden = false
-                        button.setTitle("  " + self.music[index - 1].title + "  ", for: .normal)
+                        button.setTitle("  " + self.music[index - 1].artist.name + " - " + self.music[index - 1].title + "  ", for: .normal)
                     }
                     self.state = .attachmentsConfuration(text: self.inputTextView.text)
                     self.selectedSoundPath = nil

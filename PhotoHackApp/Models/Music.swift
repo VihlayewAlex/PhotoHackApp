@@ -13,6 +13,13 @@ typealias MusicResponse = [MusicEntity]
 struct MusicEntity: Decodable {
     let title: String
     let preview: String
+    let artist: ArtistInfo
+}
+
+struct ArtistInfo: Decodable {
+    let id: Int
+    let name: String
+    let picture: String
 }
 
 extension EndpointCollection {

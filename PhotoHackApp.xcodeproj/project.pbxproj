@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E02B8F62340011900CA2B11 /* SoundPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */; };
+		2E02B8F82340BEF200CA2B11 /* NLPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E02B8F72340BEF200CA2B11 /* NLPService.swift */; };
 		FA21CD562340896000889230 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21CD552340896000889230 /* Emotion.swift */; };
 		FA21CD582340910D00889230 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA21CD572340910D00889230 /* Photo.swift */; };
 		FA882213233F5E4E0074B68E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA882212233F5E4E0074B68E /* AppDelegate.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerService.swift; sourceTree = "<group>"; };
+		2E02B8F72340BEF200CA2B11 /* NLPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLPService.swift; sourceTree = "<group>"; };
 		FA21CD552340896000889230 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		FA21CD572340910D00889230 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		FA88220F233F5E4E0074B68E /* PhotoHackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoHackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +86,7 @@
 				FAD69D7E234001DB007DC7DE /* Config.swift */,
 				FAD69D83234012E3007DC7DE /* Cell.swift */,
 				2E02B8F52340011900CA2B11 /* SoundPlayerService.swift */,
+				2E02B8F72340BEF200CA2B11 /* NLPService.swift */,
 			);
 			path = PhotoHackApp;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				FA21CD582340910D00889230 /* Photo.swift in Sources */,
 				FAD69D84234012E3007DC7DE /* Cell.swift in Sources */,
 				FAD69D7D234001C6007DC7DE /* Response.swift in Sources */,
+				2E02B8F82340BEF200CA2B11 /* NLPService.swift in Sources */,
 				FAD69D7F234001DB007DC7DE /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
