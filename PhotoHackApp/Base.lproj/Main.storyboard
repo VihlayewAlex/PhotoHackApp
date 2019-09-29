@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBg" translatesAutoresizingMaskIntoConstraints="NO" id="QB5-zt-fH3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64.000000000000028"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5p-yx-nv1">
                                         <rect key="frame" x="136.5" y="20" width="102.5" height="44"/>
@@ -32,15 +32,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-AY-Tki">
-                                        <rect key="frame" x="177.5" y="22" width="20" height="20"/>
+                                        <rect key="frame" x="347" y="32" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="eS5-go-ijl"/>
+                                            <constraint firstAttribute="width" constant="20" id="oal-cz-zoT"/>
+                                        </constraints>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="V5p-yx-nv1" firstAttribute="centerX" secondItem="nQ5-CL-eMr" secondAttribute="centerX" id="0pk-Pg-ZWa"/>
+                                    <constraint firstItem="A4W-AY-Tki" firstAttribute="centerY" secondItem="V5p-yx-nv1" secondAttribute="centerY" id="2kc-El-XG4"/>
                                     <constraint firstAttribute="bottom" secondItem="V5p-yx-nv1" secondAttribute="bottom" id="57g-Jq-e6D"/>
-                                    <constraint firstItem="A4W-AY-Tki" firstAttribute="centerX" secondItem="nQ5-CL-eMr" secondAttribute="centerX" id="GRs-Du-AyY"/>
-                                    <constraint firstItem="A4W-AY-Tki" firstAttribute="centerY" secondItem="nQ5-CL-eMr" secondAttribute="centerY" id="Gro-Ph-WxY"/>
+                                    <constraint firstAttribute="trailing" secondItem="A4W-AY-Tki" secondAttribute="trailing" constant="8" id="6rU-X0-8ee"/>
                                     <constraint firstAttribute="height" constant="64" id="N49-UP-nkh"/>
                                     <constraint firstItem="QB5-zt-fH3" firstAttribute="top" secondItem="nQ5-CL-eMr" secondAttribute="top" id="Uxy-jX-bWV"/>
                                     <constraint firstAttribute="bottom" secondItem="QB5-zt-fH3" secondAttribute="bottom" id="fQp-zA-LOW"/>
@@ -65,8 +69,8 @@
                                                     <rect key="frame" x="227" y="4" width="140" height="181.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZm-Mm-0D1">
-                                                            <rect key="frame" x="8" y="166" width="124" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                            <rect key="frame" x="8" y="166" width="124" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
