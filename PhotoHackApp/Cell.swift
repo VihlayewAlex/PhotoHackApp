@@ -17,6 +17,7 @@ class Cell: UITableViewCell {
     var indexPath: IndexPath!
     weak var delegate: CellDelegate?
     
+    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
  

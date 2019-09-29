@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         let text: String
         let emojiID: Int?
         let soundPath: String?
+        var isPlayed: Bool
     }
     
     @IBOutlet weak var photoImgView: UIImageView!
@@ -97,9 +98,7 @@ class ViewController: UIViewController {
     
     @IBAction func send() {
         if case State.attachmentsConfuration(let text) = self.state {
-//            let bytes = IMAGE?.jpegData(compressionQuality: 0.2)?.map({ (byte) -> UInt8 in
-//                return byte
-//            }) ?? []
+
             let bytes = IMAGE!.jpegData(compressionQuality: 0.2)!.base64EncodedString()
             
             print("Got bytes")

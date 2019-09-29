@@ -112,6 +112,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="messageLabel" destination="IZm-Mm-0D1" id="kag-i2-Ehz"/>
+                                            <outlet property="playButton" destination="ML6-co-Tcn" id="IqT-eS-aPo"/>
                                             <outlet property="userImageView" destination="BCS-fV-yvd" id="uWG-Gh-GrB"/>
                                         </connections>
                                     </tableViewCell>
