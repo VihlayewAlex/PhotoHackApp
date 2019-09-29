@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     @IBOutlet var soundButtons: [UIButton]!
     
     lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (_) in
-        self.photoImgView.image = IMAGE
+        self.photoImgView.image = (CUSTOM_IMAGE != nil) ? CUSTOM_IMAGE : IMAGE
     }
     
     let camera = Camera()
@@ -98,11 +98,19 @@ class ViewController: UIViewController {
     
     var music = [MusicEntity]()
     
+    @IBAction func customImage(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.allowsEditing = false
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func send() {
         self.activityIndicator.isHidden = false
         if case State.attachmentsConfuration(let text) = self.state {
 
-            let bytes = IMAGE!.jpegData(compressionQuality: 0.2)!.base64EncodedString()
+            let bytes = (CUSTOM_IMAGE ?? IMAGE)!.jpegData(compressionQuality: 0.2)!.base64EncodedString()
             
             print("Got bytes")
             networkingService.performRequest(to: EndpointCollection.photo, with: PhotoRequest(emotion: selectedEmojiID ?? 6, photo: bytes)) { (result: Result<PhotoResponse>) in
@@ -135,6 +143,7 @@ class ViewController: UIViewController {
                                     self.selectedSoundPath = nil
                                     self.scrollersContainer.isHidden = true
                                     self.activityIndicator.isHidden = true
+                                    CUSTOM_IMAGE = nil
                                 }
                             }
                         }).resume()
@@ -327,3 +336,16 @@ extension ViewController: CellDelegate {
     }
     
 }
+
+extension ViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            CUSTOM_IMAGE = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+var CUSTOM_IMAGE: UIImage?

@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navBg" translatesAutoresizingMaskIntoConstraints="NO" id="QB5-zt-fH3">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64.000000000000028"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5p-yx-nv1">
                                         <rect key="frame" x="136.5" y="20" width="102.5" height="44"/>
@@ -196,10 +196,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pyO-K0-2IF">
-                                                                <rect key="frame" x="8" y="0.0" width="359" height="45"/>
+                                                                <rect key="frame" x="8" y="0.0" width="321" height="45"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVf-4y-dIH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="121" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="83" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="No Sound">
@@ -210,7 +210,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdz-aI-PDj">
-                                                                        <rect key="frame" x="136" y="0.0" width="63" height="45"/>
+                                                                        <rect key="frame" x="98" y="0.0" width="63" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="Name 1">
@@ -221,7 +221,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okn-Kf-JYk">
-                                                                        <rect key="frame" x="214" y="0.0" width="65" height="45"/>
+                                                                        <rect key="frame" x="176" y="0.0" width="65" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="Name 2">
@@ -232,7 +232,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff0-EM-RzL">
-                                                                        <rect key="frame" x="294" y="0.0" width="65" height="45"/>
+                                                                        <rect key="frame" x="256" y="0.0" width="65" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="Name 3">
@@ -392,6 +392,13 @@
                                     <constraint firstAttribute="width" secondItem="zym-Sx-DMf" secondAttribute="height" multiplier="3:4" id="hFY-9x-N3I"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZLr-Kx-yEE">
+                                <rect key="frame" x="16" y="168" width="99" height="30"/>
+                                <state key="normal" title="Custom image"/>
+                                <connections>
+                                    <action selector="customImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aYe-aY-HC5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -404,10 +411,12 @@
                             <constraint firstItem="fEr-wI-4Ak" firstAttribute="top" secondItem="Ep0-aJ-5Ec" secondAttribute="bottom" id="H7z-yg-Trt"/>
                             <constraint firstItem="Ep0-aJ-5Ec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HHU-fd-0yQ"/>
                             <constraint firstItem="zym-Sx-DMf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="O0w-2z-aWg"/>
+                            <constraint firstItem="ZLr-Kx-yEE" firstAttribute="top" secondItem="zym-Sx-DMf" secondAttribute="bottom" constant="8" id="SXF-Ab-m4x"/>
                             <constraint firstItem="hRW-li-daY" firstAttribute="top" secondItem="nQ5-CL-eMr" secondAttribute="bottom" id="Vg6-bA-GjJ"/>
                             <constraint firstItem="Ep0-aJ-5Ec" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bnV-E9-WKa"/>
                             <constraint firstItem="hRW-li-daY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFt-i5-w1L"/>
                             <constraint firstItem="nQ5-CL-eMr" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gHx-QC-yVh"/>
+                            <constraint firstItem="ZLr-Kx-yEE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="k7t-k0-29S"/>
                             <constraint firstItem="zym-Sx-DMf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="l7g-qg-MeC"/>
                             <constraint firstItem="nQ5-CL-eMr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oh8-x5-kIc"/>
                             <constraint firstItem="Ep0-aJ-5Ec" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oww-mw-I7V"/>
