@@ -14,6 +14,7 @@ class SoundPlayerService {
     var player: AVPlayer?
     
     func play(_ url: String) {
+        isPlaying = true
         //https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3
         let stringURL = url
         let playerItem = AVPlayerItem( url:NSURL( string:url )! as URL )
@@ -22,7 +23,10 @@ class SoundPlayerService {
         player!.play()
     }
     
+    var isPlaying = false
+    
     func stop() {
+        isPlaying = false
         //https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3
 //        let stringURL = url
 //        let playerItem = AVPlayerItem( url:NSURL( string:url )! as URL )

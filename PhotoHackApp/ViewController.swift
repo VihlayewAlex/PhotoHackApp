@@ -16,11 +16,13 @@ class ViewController: UIViewController {
     }
     
     struct Message {
+        let image: UIImage
         let text: String
         let emojiID: Int?
         let soundPath: String?
     }
     
+    @IBOutlet weak var photoImgView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var inputTextView: UITextView!
@@ -30,6 +32,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollersContainer: UIStackView!
     @IBOutlet var emojiView: [UIButton]!
     @IBOutlet var soundButtons: [UIButton]!
+    
+    lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (_) in
+        self.photoImgView.image = IMAGE
+    }
     
     let camera = Camera()
     let playerService = SoundPlayerService()
@@ -51,6 +57,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        _ = timer
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50.0
         
@@ -70,7 +78,7 @@ class ViewController: UIViewController {
             button.layer.cornerRadius = 4
             button.tag = index
         }
-//        camera.setupCamera()
+        camera.setupCamera()
         subscribeToKeyboardEvents()
     }
     
@@ -89,20 +97,64 @@ class ViewController: UIViewController {
     
     @IBAction func send() {
         if case State.attachmentsConfuration(let text) = self.state {
-            // Send msg with 'selectedSoundPath'
-            print("""
-                MSG: \(text)
-                SOUND: \(selectedSoundPath)
-                EMOJI: \(selectedEmojiID)
-            """)
-            messages.insert(ViewController.Message(text: text, emojiID: selectedEmojiID, soundPath: selectedSoundPath), at: 0)
-            //
+//            let bytes = IMAGE?.jpegData(compressionQuality: 0.2)?.map({ (byte) -> UInt8 in
+//                return byte
+//            }) ?? []
+            let bytes = IMAGE!.jpegData(compressionQuality: 0.2)!.base64EncodedString()
             
-            inputTextView.text = ""
-            state = .textEntering
-            selectedSoundPath = nil
-            scrollersContainer.isHidden = true
+            print("Got bytes")
+            networkingService.performRequest(to: EndpointCollection.photo, with: PhotoRequest(emotion: selectedEmojiID ?? 6, photo: bytes)) { (result: Result<PhotoResponse>) in
+                print("Got response")
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let response):
+                        guard let link = response.links.last else {
+                            let alert = UIAlertController(title: "Erroe", message: "Retake photo please", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                            return
+                        }
+                        URLSession.shared.dataTask(with: URL(string: link)!, completionHandler: { (data, _, error) in
+                            DispatchQueue.main.async {
+                                guard error == nil else {
+                                    return
+                                }
+                                
+                                if let data = data {
+                                    let image = UIImage(data: data)!
+                                    // Send msg with 'selectedSoundPath'
+                                    self.messages.insert(ViewController.Message(image: image, text: text, emojiID: self.selectedEmojiID, soundPath: self.selectedSoundPath), at: 0)
+                                    guard let path = self.selectedSoundPath else { return }
+                                    self.playerService.play(path)
+                                    
+                                    self.inputTextView.text = ""
+                                    self.state = .textEntering
+                                    self.selectedSoundPath = nil
+                                    self.scrollersContainer.isHidden = true
+                                }
+                            }
+                        }).resume()
+                        
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
             return
+        }
+        
+        networkingService.performRequest(to: EndpointCollection.emotion(text: inputTextView.text)) { (result: Result<EmotionResponse>) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    self.state = .attachmentsConfuration(text: self.inputTextView.text)
+                    self.selectedEmojiID = response.emotion
+                    self.setSelectedEmoji(for: response.emotion - 1)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
         }
         
         networkingService.performRequest(to: EndpointCollection.music(phrase: inputTextView.text, words: ["dick"])) { (result: Result<MusicResponse>) in
@@ -123,21 +175,15 @@ class ViewController: UIViewController {
                         button.isHidden = false
                         button.setTitle("  " + self.music[index - 1].title + "  ", for: .normal)
                     }
+                    self.state = .attachmentsConfuration(text: self.inputTextView.text)
+                    self.selectedSoundPath = nil
+                    self.setSelectedSound(for: 0)
                     self.scrollersContainer.isHidden = false
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
         }
-        
-//        print("IMAGE:", IMAGE)
-        
-//        messages.append(inputTextView.text)
-//        inputTextView.text = ""
-
-        playerService.play("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3")
-        messages.append(inputTextView.text)
-        inputTextView.text = ""
     }
     
     var selectedSoundPath: String?
@@ -200,10 +246,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.indexPath = indexPath
         cell.delegate = self
         cell.messageLabel.text = message.text
-//        cell.
+        cell.userImageView.image = message.image
         
         cell.transform = CGAffineTransform(rotationAngle: -CGFloat.pi)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = cell as! Cell
+        
+        UIView.animate(withDuration:1.0,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.4,
+                       initialSpringVelocity: 0.1,
+                       options: [.curveEaseInOut],
+                       animations: {
+            cell.userImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }, completion: {
+            (value: Bool) in
+            UIView.animate(withDuration: 0.2, animations: {
+                cell.userImageView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            })
+        })
+        
+        
     }
     
 }
@@ -238,7 +304,12 @@ extension ViewController: UITextViewDelegate {
 extension ViewController: CellDelegate {
     
     func playTapped(at indexPath: IndexPath) {
-        
+        if playerService.isPlaying {
+            playerService.stop()
+        } else {
+            guard let path = messages[indexPath.row].soundPath else { return }
+            playerService.play(path)
+        }
     }
     
 }

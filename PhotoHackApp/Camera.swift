@@ -31,6 +31,7 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
         output.alwaysDiscardsLateVideoFrames = true
         
         let queue = DispatchQueue(label: "cameraQueue")
+        
         output.setSampleBufferDelegate(self, queue: queue)
         output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as AnyHashable as! String: kCVPixelFormatType_32BGRA]
         
@@ -43,6 +44,7 @@ class Camera: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        connection.videoOrientation = .portrait
         let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
         CVPixelBufferLockBaseAddress(imageBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         let baseAddress = UnsafeMutableRawPointer(CVPixelBufferGetBaseAddress(imageBuffer!))
