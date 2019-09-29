@@ -22,6 +22,8 @@ class ViewController: UIViewController {
         let soundPath: String?
     }
     
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var photoImgView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendButton: UIButton!
@@ -78,6 +80,7 @@ class ViewController: UIViewController {
             button.layer.cornerRadius = 4
             button.tag = (index)
         }
+        self.activityIndicator.isHidden = true
         camera.setupCamera()
         subscribeToKeyboardEvents()
     }
@@ -96,6 +99,7 @@ class ViewController: UIViewController {
     var music = [MusicEntity]()
     
     @IBAction func send() {
+        self.activityIndicator.isHidden = false
         if case State.attachmentsConfuration(let text) = self.state {
 
             let bytes = IMAGE!.jpegData(compressionQuality: 0.2)!.base64EncodedString()
@@ -130,6 +134,7 @@ class ViewController: UIViewController {
                                     self.state = .textEntering
                                     self.selectedSoundPath = nil
                                     self.scrollersContainer.isHidden = true
+                                    self.activityIndicator.isHidden = true
                                 }
                             }
                         }).resume()
@@ -151,6 +156,7 @@ class ViewController: UIViewController {
                     self.selectedEmojiID = response.emotion
                     self.setSelectedEmoji(for: response.emotion - 1)
                     self.scrollersContainer.isHidden = false
+                    self.activityIndicator.isHidden = true
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -180,6 +186,7 @@ class ViewController: UIViewController {
                     self.selectedSoundPath = nil
                     self.setSelectedSound(for: 0)
                     self.scrollersContainer.isHidden = false
+                    self.activityIndicator.isHidden = true
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

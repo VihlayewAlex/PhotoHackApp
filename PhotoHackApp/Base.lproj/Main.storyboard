@@ -31,11 +31,16 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="A4W-AY-Tki">
+                                        <rect key="frame" x="177.5" y="22" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="V5p-yx-nv1" firstAttribute="centerX" secondItem="nQ5-CL-eMr" secondAttribute="centerX" id="0pk-Pg-ZWa"/>
                                     <constraint firstAttribute="bottom" secondItem="V5p-yx-nv1" secondAttribute="bottom" id="57g-Jq-e6D"/>
+                                    <constraint firstItem="A4W-AY-Tki" firstAttribute="centerX" secondItem="nQ5-CL-eMr" secondAttribute="centerX" id="GRs-Du-AyY"/>
+                                    <constraint firstItem="A4W-AY-Tki" firstAttribute="centerY" secondItem="nQ5-CL-eMr" secondAttribute="centerY" id="Gro-Ph-WxY"/>
                                     <constraint firstAttribute="height" constant="64" id="N49-UP-nkh"/>
                                     <constraint firstItem="QB5-zt-fH3" firstAttribute="top" secondItem="nQ5-CL-eMr" secondAttribute="top" id="Uxy-jX-bWV"/>
                                     <constraint firstAttribute="bottom" secondItem="QB5-zt-fH3" secondAttribute="bottom" id="fQp-zA-LOW"/>
@@ -187,10 +192,10 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="45"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pyO-K0-2IF">
-                                                                <rect key="frame" x="8" y="0.0" width="321" height="45"/>
+                                                                <rect key="frame" x="8" y="0.0" width="359" height="45"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVf-4y-dIH">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="83" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="121" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="No Sound">
@@ -201,7 +206,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdz-aI-PDj">
-                                                                        <rect key="frame" x="98" y="0.0" width="63" height="45"/>
+                                                                        <rect key="frame" x="136" y="0.0" width="63" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="Name 1">
@@ -212,7 +217,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okn-Kf-JYk">
-                                                                        <rect key="frame" x="176" y="0.0" width="65" height="45"/>
+                                                                        <rect key="frame" x="214" y="0.0" width="65" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="Name 2">
@@ -223,7 +228,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff0-EM-RzL">
-                                                                        <rect key="frame" x="256" y="0.0" width="65" height="45"/>
+                                                                        <rect key="frame" x="294" y="0.0" width="65" height="45"/>
                                                                         <color key="backgroundColor" red="0.57712751626968384" green="0.28911411762237549" blue="0.86671441793441772" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                                         <state key="normal" title="Name 3">
@@ -407,6 +412,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="A4W-AY-Tki" id="DM2-cF-QgQ"/>
                         <outlet property="inputContainerViewBottomConstraint" destination="Fmt-S8-IXq" id="UqK-Bg-zXc"/>
                         <outlet property="inputTextFieldMinimumHeightConstraint" destination="eBG-lg-JHV" id="ZEj-Cl-vwo"/>
                         <outlet property="inputTextView" destination="dxB-ix-UTs" id="waZ-wR-cCb"/>
